@@ -15,6 +15,7 @@ const Chat = ({ location }) => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
+
     socket = io(process.env.REACT_APP_BACKEND_URL)
 
     const { name, room } = queryString.parse(location.search);
@@ -33,10 +34,16 @@ const Chat = ({ location }) => {
   }, [location.search])
 
   useEffect(() => {
-    socket.on('message', (message) => {
-      setMessages([...messages, message])
+    socket.on('message', (newmessage) => {
+      setMessages([...messages, newmessage])
     })
   }, [messages])
+
+  useEffect(() => {
+    socket.on('roomData', (room) => {
+      console.log({room})
+    })
+  }, [])
 
   const sendMessage= (e) => {
     e.preventDefault();
@@ -44,8 +51,6 @@ const Chat = ({ location }) => {
       socket.emit('sendMessage', message, () => setMessage(''))
     }
   }
-
-  console.log({message} ,{messages})
 
   return (
     <div className='outerContainer'>

@@ -1,6 +1,6 @@
 .messageBox {
   background: #F3F3F3;
-  border-radius: 20px;
+  border-radius: 6px;
   padding: 5px 20px;
   color: white;
   display: inline-block;
@@ -19,10 +19,14 @@
   vertical-align: middle;
 }
 
+p {
+  margin: 0;
+}
+
 .messageContainer {
   display: flex;
   justify-content: flex-end;
-  padding: 0 5%;
+  padding: 0 15px;
   margin-top: 3px;
 }
 
@@ -30,7 +34,7 @@
   display: flex;
   align-items: center;
   font-family: Helvetica;
-  color: #828282;
+  color: #2d7b2c;
   letter-spacing: 0.3px;
 }
 
@@ -50,6 +54,10 @@
   justify-content: flex-end;
 }
 
+.justifyCenter {
+  justify-content: center;
+}
+
 .colorWhite {
   color: white;
 }
@@ -63,5 +71,10 @@
 }
 
 .backgroundLight {
+  color: #333;
   background: #F3F3F3;
+}
+
+.backgroundGrey {
+  background: rgb(185, 185, 185);
 }

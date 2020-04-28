@@ -5,6 +5,7 @@ import './style.css';
 import InfoBar from '../infoBar';
 import Input from '../input/Input';
 import Messages from '../messages';
+import SideBar from '../sideBar';
 
 let socket;
 
@@ -13,19 +14,17 @@ const Chat = ({ location }) => {
   const [room, setRoom] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
+  const [roomUsers, setRoomUsers] = useState([]);
+  const [showSideMenu, setShowSideMenu] = useState(false);
 
   useEffect(() => {
-
     socket = io(process.env.REACT_APP_BACKEND_URL)
-
     const { name, room } = queryString.parse(location.search);
 
     setName(name);
     setRoom(room);
 
-    socket.emit('join', { name, room }, (error) => {
-
-    })
+    socket.emit('join', { name, room }, (error) => {})
 
     return () => {
       socket.emit('disconnect');
@@ -34,6 +33,7 @@ const Chat = ({ location }) => {
   }, [location.search])
 
   useEffect(() => {
+    console.log('2nd useEffect')
     socket.on('message', (newmessage) => {
       setMessages([...messages, newmessage])
     })
@@ -41,7 +41,7 @@ const Chat = ({ location }) => {
 
   useEffect(() => {
     socket.on('roomData', (room) => {
-      console.log({room})
+      setRoomUsers(room)
     })
   }, [])
 
@@ -51,15 +51,18 @@ const Chat = ({ location }) => {
       socket.emit('sendMessage', message, () => setMessage(''))
     }
   }
+  console.log(messages);
 
   return (
     <div className='outerContainer'>
-      <div className="container">
-        <InfoBar room={room}/>
-        <Messages messages={messages} name={name} />
-        <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
+      <InfoBar room={room} toggleSideBar={() => setShowSideMenu(!showSideMenu)}/>
+      <div className="innerContainer">
+        <SideBar users={roomUsers} visibility={showSideMenu} closeSideBar={() => setShowSideMenu(false)}/>
+        <div className="container">
+          <Messages messages={messages} name={name} />
+          <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
+        </div>
       </div>
-      
     </div>
   )
 }

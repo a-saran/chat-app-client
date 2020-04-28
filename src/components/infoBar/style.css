@@ -12,7 +12,7 @@
   flex: 0.5;
   display: flex;
   align-items: center;
-  margin-left: 5%;
+  margin-left: 10px;
   color: white;
 }
 
@@ -20,9 +20,20 @@
   display: flex;
   flex: 0.5;
   justify-content: flex-end;
-  margin-right: 5%;
+  margin-right: 10px;
 }
 
 .onlineIcon {
-  margin-right: 5%;
+  margin-right: 10px;
+}
+
+.toggle-menu{
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .toggle-menu {
+    display: block;
+    padding-right: 15px;
+  }
 }

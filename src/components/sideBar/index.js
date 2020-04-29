@@ -27,7 +27,8 @@ const SideBar = ({ users: { users }, visibility, closeSideBar }) => {
       className={`sidebar-container ${visibility ? "visible" : ""}`}
       ref={sideBarRef}
     >
-      {users && users.length > 0 && users.map((user) => <h1>{user.name}</h1>)}
+      <h1 className='heading -sm'>Users</h1>
+      {users && users.length > 0 && users.map((user) => <h3>{user.name}</h3>)}
     </div>
   );
 };

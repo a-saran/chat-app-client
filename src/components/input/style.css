@@ -3,6 +3,9 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  background: #fff;
+  border-radius: 50px;
+  overflow: hidden;
 }
 
 .form {
@@ -23,6 +26,7 @@ input:focus, textarea:focus, select:focus{
 }
 
 .sendButton {
+  border-radius: 50px;
   color: #fff !important;
   text-transform: uppercase;
   text-decoration: none;

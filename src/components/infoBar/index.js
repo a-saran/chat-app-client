@@ -8,7 +8,9 @@ const Infobar = ({ room, toggleSideBar }) => (
   <div className="infoBar">
     <div className="leftInnerContainer">
       <div className="toggle-menu" onClick={toggleSideBar}>
-        XX
+        <div className='hamburger-icon' />
+        <div className='hamburger-icon' />
+        <div className='hamburger-icon' />
       </div>
       <img src={onlineIcon} className="onlineIcon" alt="" />
       <h3>{room}</h3>

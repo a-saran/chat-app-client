@@ -6,12 +6,14 @@ import Chat from './components/chat'
 import Join from './components/join';
 
 const App = () => (
-  <Router>
-    <Switch>
-      <Route path='/' component={Join} exact/>
-      <Route path='/chat' component={Chat} exact/>
-    </Switch>
-  </Router>
+  <div className="app">
+    <Router>
+      <Switch>
+        <Route path='/' component={Join} exact/>
+        <Route path='/chat' component={Chat} exact/>
+      </Switch>
+    </Router>
+  </div>
 )
 
 export default App;

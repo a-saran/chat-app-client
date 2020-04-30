@@ -1,8 +1,6 @@
 import React from "react";
+import closeIcon from "../../assets/power_off.png";
 import "./style.css";
-
-import onlineIcon from "../../assets/onlineIcon.png";
-import closeIcon from "../../assets/closeIcon.png";
 
 const Infobar = ({ room, toggleSideBar }) => (
   <div className="infoBar">
@@ -12,12 +10,12 @@ const Infobar = ({ room, toggleSideBar }) => (
         <div className='hamburger-icon' />
         <div className='hamburger-icon' />
       </div>
-      <img src={onlineIcon} className="onlineIcon" alt="" />
+      <span className='online'/>
       <h3>{room}</h3>
     </div>
     <div className="rightInnerContainer">
       <a href="/">
-        <img src={closeIcon} alt="" />
+        <img src={closeIcon} alt="" className="close-icon" />
       </a>
     </div>
   </div>

@@ -28,7 +28,12 @@ const SideBar = ({ users: { users }, visibility, closeSideBar }) => {
       ref={sideBarRef}
     >
       <h1 className='heading -sm'>Users</h1>
-      {users && users.length > 0 && users.map((user, i) => <h3 key={i}>{user.name}</h3>)}
+      {users && users.length > 0 && users.map((user, i) =>(
+        <div className='available_user'>
+          <h3 key={i}>{user.name}</h3>
+          <span className='online'/>
+        </div>
+      ))}
     </div>
   );
 };

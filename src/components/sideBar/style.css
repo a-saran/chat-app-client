@@ -6,6 +6,12 @@
   color: #fff;
 }
 
+.available_user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .-sm {
   font-size: 1.5rem !important;
 }

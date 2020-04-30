@@ -28,14 +28,30 @@
   margin-right: 10px;
 }
 
-.toggle-menu{
+.close-icon {
+  width: 20px;
+}
+
+.close-icon:hover {
+  box-shadow: 0 0 6px 1px #b9b9b9;
+}
+
+.toggle-menu {
   display: none;
+}
+
+.online {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: greenyellow;
+  margin: 0 10px;
 }
 
 .hamburger-icon {
   width: 30px;
   height: 4px;
-  background-color: black;
+  background-color: #fff;
   margin: 5px 0;
   border-radius: 4px;
 }
